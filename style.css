@@ -1,0 +1,77 @@
+body {
+    overflow: hidden;
+    background: linear-gradient(rgb(1, 1, 65), rgb(76, 76, 185));
+}
+
+.who {
+    overflow:hidden;
+    display: flex;
+    height: 100vh;
+    width: 100vmax;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#who {
+    height: 10vh;
+    width: 40vh;
+    background-color: blue;
+    border-radius: 10px;
+    border: 2px solid whitesmoke;
+    font-size: 8vh;
+}
+
+#emotions {
+    height: 10vh;
+    width: 40vh;
+    background-color: blue;
+    border-radius: 10px;
+    border: 2px solid whitesmoke;
+    font-size: 8vh;
+}
+
+.chart {
+    display: flex;
+
+}
+
+.arrow-down {
+    margin-top: 1vh;
+    width: 0; 
+    height: 0; 
+    border-left: 20vh solid transparent;
+    border-right: 20vh solid transparent;
+    border-top: 5vh solid rgb(1, 255, 22);
+    border-radius: 20px;
+}
+
+.arrow-up {
+    width: 0; 
+    height: 0; 
+    border-left: 20vh solid transparent;
+    border-right: 20vh solid transparent;
+    border-bottom: 5vh solid rgb(1, 255, 22);
+    margin-bottom: 1vh;
+    border-radius: 20px;
+  }
+
+.emotions {
+    overflow:hidden;
+    display: flex;
+    height: 100vh;
+    width: 100vmax;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.chart {
+    overflow:hidden;
+    display: flex;
+    height: 100vh;
+    width: 100vmax;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;    
+}
