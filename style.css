@@ -1,3 +1,7 @@
+html { 
+    scroll-behavior: smooth; 
+}
+
 body {
     overflow: hidden;
     background: linear-gradient(rgb(1, 1, 65), rgb(76, 76, 185));
