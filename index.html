@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Poems</title>
+    <link rel="stylesheet" href="clear.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="who" id="who-block">
+        <input type="text" name="who" id="who">
+        <div class="arrow-down" id="scroll0"></div>
+    </div>
+    <div class="emotions" id="emotions-block">
+        <div class="arrow-up" id="scroll1"></div>
+        <input type="text" name="emotions" id="emotions">
+        <div class="arrow-down" id="scroll2"></div>
+    </div>
+    <div class="chart" id="chart-block">
+        <div class="arrow-up" id="scroll3"></div>
+        <canvas id="chart"></canvas>
+        <div class="strings"></div>
+    </div>
+    <script src="./chart.js"></script>
+</body>
+</html>
