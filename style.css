@@ -7,11 +7,16 @@ body {
     background: linear-gradient(rgb(1, 1, 65), rgb(76, 76, 185));
 }
 
+.container {
+    display: flex;
+    flex-direction: column;
+}
+
 .who {
     overflow:hidden;
     display: flex;
     height: 100vh;
-    width: 100vmax;
+    width: 100vw;
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
@@ -19,16 +24,17 @@ body {
 
 #who {
     height: 10vh;
-    width: 40vh;
+    width: 40vw;
     background-color: blue;
     border-radius: 10px;
     border: 2px solid whitesmoke;
     font-size: 8vh;
+    margin-bottom: 3vh;
 }
 
 #emotions {
     height: 10vh;
-    width: 40vh;
+    width: 40vw;
     background-color: blue;
     border-radius: 10px;
     border: 2px solid whitesmoke;
@@ -59,7 +65,7 @@ body {
     overflow:hidden;
     display: flex;
     height: 100vh;
-    width: 100vmax;
+    width: 100vw;
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
@@ -69,7 +75,7 @@ body {
     overflow:hidden;
     display: flex;
     height: 100vh;
-    width: 100vmax;
+    width: 100vw;
     flex-direction: column;
     justify-content: space-between;
     align-items: center;    
