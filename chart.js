@@ -1,9 +1,8 @@
 /*
    + нарисовать градиент
-   - нарисовать оси
-   - добавить точки
+   + нарисовать оси
+   + добавить точки
    - сделать так чтобы точки можно было двигать 
-   - соединить точки линиями
    - добавить возможность увеличивать график
 */
 
@@ -17,6 +16,12 @@ function vwToPixels (vw) {
 class Chart {
 
     constructor (canvas, dots, mobile) {
+        this.dots = new Array(dots).fill({
+            offset: 0,
+            x: 0,
+            y: 0,
+            radius: 10,
+        });
         this.canvas = canvas;
         this.context = canvas.getContext("2d");
         this.mobile = mobile;
@@ -36,28 +41,115 @@ class Chart {
         }
         this.dotsNumber = dots;
         this.#drawGradient();
+        this.#drawAxis();
+        this.context.save();
+        this.#drawDots();
+        this.isDragging = false;
+        this.dotDragging = -1;
+        const mouseDown = (e) => {
+            let offsetX = this.canvas.getBoundingClientRect().left;
+            let offsetY = this.canvas.getBoundingClientRect().top;
+            e.preventDefault();
+            e.stopPropagation();
+            let mx=parseInt(e.clientX-offsetX);
+            let my=parseInt(e.clientY-offsetY);
+            function inRadius(x,y, x1, y1, radius){
+                return ((x1-x)**2 + (y1-y)**2)*0.5 <= radius;
+            }
+            this.dots.forEach((el, i)=>{
+                if (inRadius(mx, my, el.x, el.y, el.radius)) {
+                    this.isDragging = true;
+                    this.dotDragging = i;
+                }
+            })
+        }
+        const mouseMove = (e) => {
+            let offsetX = this.canvas.getBoundingClientRect().left;
+            let offsetY = this.canvas.getBoundingClientRect().top;
+            if (this.isDragging) {
+                e.preventDefault();
+                e.stopPropagation();
+                let mx=parseInt(e.clientX-offsetX);
+                let my=parseInt(e.clientY-offsetY);
+                if (this.mobile) {
+                    this.dots[this.dotDragging].x = mx;
+                }
+                else {
+                    this.dots[this.dotDragging].y = my;
+                }
+            }
+        }
+        const mouseUp = (e) => {
+            this.isDragging = false;
+            this.dotDragging = -1;
+        }
+        this.canvas.addEventListener("mousedown", mouseDown);
+        this.canvas.addEventListener("mouseup", mouseUp);
+        this.canvas.addEventListener("mousemove", mouseMove);
     }
 
     #drawGradient() {
         this.gradient.addColorStop(0, "red");
         this.gradient.addColorStop(1, "blue");
         this.context.fillStyle = this.gradient;
-        this.context.fillRect(10, 10, this.width-20, this.height-20);
+        this.context.fillRect(40, 40, this.width-80, this.height-80);
         this.context.strokeRect(0, 0, this.width, this.height);
     }
 
-    #drawaxis() {
+    #drawAxis() {
         if (this.mobile) {
+            this.context.lineWidth = 5;
+            this.context.beginPath();
+            this.context.moveTo(this.width/2, 40);
+            this.context.lineTo(this.width/2, this.height-40);
+            this.context.stroke();
+            this.context.beginPath();
+            this.context.moveTo(40, 50);
+            this.context.lineTo(this.width-40, 50);
+            this.context.stroke();
+        }
+        else {
+            this.context.lineWidth = 5;
+            this.context.beginPath();
+            this.context.moveTo(40, this.height/2);
+            this.context.lineTo(this.width-40, this.height/2);
+            this.context.stroke();
+            this.context.beginPath();
+            this.context.moveTo(50, 40);
+            this.context.lineTo(50, this.height-40);
+            this.context.stroke();
+        }
+    }
 
+    #drawDots() {
+        if (this.mobile) {
+            let step = (this.height - 40*2 - 10 - 10)/(this.dots.length);
+            this.dots.forEach((el, i)=>{
+                el.x = this.width/2 + el.offset;
+                el.y = 10+i*step + 40*2 + 10;
+                el.radius = 10;
+                this.context.beginPath();
+                this.context.arc(el.x, el.y, el.radius, 0, Math.PI*2, false);
+                this.context.stroke();
+            })
+        }
+        else {
+            let step = (this.width - 40*2 - 10 - 10)/(this.dots.length + 1);
+            this.dots.forEach((el, i)=>{
+                el.x = 10+i*step + 40*2 + 10;
+                el.y = this.height/2 + el.offset;
+                el.radius = 10;
+                this.context.beginPath();
+                this.context.arc(el.x, el.y, el.radius, 0, Math.PI*2, false);
+                this.context.stroke();
+            })
         }
     }
 }
 
-
-
 let chart = new Chart(
     document.getElementById("chart"), 
-    4, 
+    10, 
     vwToPixels(1) < vhToPixels(1));
 let scroll0 = document.getElementById("scroll0");
 scroll0.addEventListener("click", ()=>{

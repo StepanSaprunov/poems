@@ -7,6 +7,17 @@ body {
     background: linear-gradient(rgb(1, 1, 65), rgb(76, 76, 185));
 }
 
+.inplab {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+label {
+    color: yellow;
+    font-size: 3vh;
+}
+
 .container {
     display: flex;
     flex-direction: column;
