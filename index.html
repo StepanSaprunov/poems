@@ -9,23 +9,28 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="who" id="who-block">
-        <div class=""></div>
-        <div class="container">
-            <div class="inplab">
-                <label for="who">Кому</label>
-                <input type="text" name="who" id="who">
-            </div>
-            <div class="inplab">
-                <label for="emotions">Эмоции</label>
-                <input type="text" name="emotions" id="emotions"></div>
-            </div>
-        <div class="arrow-down" id="scroll0"></div>
-    </div>
+   
     <div class="chart" id="chart-block">
-        <div class="arrow-up" id="scroll1"></div>
         <canvas id="chart"></canvas>
         <div class="strings"></div>
+    </div>
+    <div class="who" id="who-block">
+        <div class="inplab">
+            <label for="theme">Тема</label>
+            <input type="text" name="theme" id="theme">
+        </div>
+        <div class="inplab">
+            <label for="who">Кому</label>
+            <input type="text" name="who" id="who">
+        </div>
+        <div class="inplab">
+            <label for="about">Эмоции</label>
+            <input type="text" name="about" id="about">
+        </div>
+        <div class="inplab">
+            <label for="title">Название</label>
+            <input type="text" name="title" id="title">
+        </div>
     </div>
     <script src="./chart.js"></script>
 </body>

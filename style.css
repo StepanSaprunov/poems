@@ -3,8 +3,10 @@ html {
 }
 
 body {
-    overflow: hidden;
     background: linear-gradient(rgb(1, 1, 65), rgb(76, 76, 185));
+    display: flex;
+    flex-direction: row;
+    align-items: center;
 }
 
 .inplab {
@@ -18,24 +20,20 @@ label {
     font-size: 3vh;
 }
 
-.container {
-    display: flex;
-    flex-direction: column;
-}
 
 .who {
     overflow:hidden;
     display: flex;
     height: 100vh;
-    width: 100vw;
+    width: 40vw;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 }
 
-#who {
+#who, #about, #title, #theme {
     height: 10vh;
-    width: 40vw;
+    width: 30vw;
     background-color: blue;
     border-radius: 10px;
     border: 2px solid whitesmoke;
@@ -43,42 +41,26 @@ label {
     margin-bottom: 3vh;
 }
 
-#emotions {
-    height: 10vh;
-    width: 40vw;
-    background-color: blue;
-    border-radius: 10px;
-    border: 2px solid whitesmoke;
-    font-size: 8vh;
+#title {
+    height: 20vh;
 }
-
-.arrow-down {
-    margin-top: 3vh;
-    width: 0; 
-    height: 0; 
-    border-left: 20vh solid transparent;
-    border-right: 20vh solid transparent;
-    border-top: 5vh solid blanchedalmond;
-    border-radius: 20px;
-}
-
-.arrow-up {
-    width: 0; 
-    height: 0; 
-    border-left: 20vh solid transparent;
-    border-right: 20vh solid transparent;
-    border-bottom: 5vh solid blanchedalmond;
-    margin-bottom: 3vh;
-    border-radius: 20px;
-  }
 
 
 .chart {
     overflow:hidden;
     display: flex;
-    height: 100vh;
-    width: 100vw;
+    height: 80vh;
+    width: 60vw;
     flex-direction: column;
     justify-content: center;
     align-items: center;    
+}
+
+.mobile-chart {
+    width: 100vw;
+}
+
+.mobile {
+    flex-direction: column-reverse;
+    align-items: center;
 }
