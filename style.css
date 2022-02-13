@@ -6,7 +6,8 @@ body {
     background: linear-gradient(rgb(1, 1, 65), rgb(76, 76, 185));
     display: flex;
     flex-direction: row;
-    align-items: center;
+    align-items: flex-start;
+    justify-content: start;
 }
 
 .inplab {
@@ -27,40 +28,97 @@ label {
     height: 100vh;
     width: 40vw;
     flex-direction: column;
-    justify-content: center;
+    justify-content: start;
     align-items: center;
+    margin-top: 10vh;
 }
 
 #who, #about, #title, #theme {
     height: 10vh;
-    width: 30vw;
+    width: 80%;
     background-color: blue;
     border-radius: 10px;
     border: 2px solid whitesmoke;
     font-size: 8vh;
     margin-bottom: 3vh;
-}
-
-#title {
-    height: 20vh;
+    color: yellow;
 }
 
 
 .chart {
     overflow:hidden;
     display: flex;
-    height: 80vh;
-    width: 60vw;
+    height: fit-content;
+    width: 58vw;
     flex-direction: column;
-    justify-content: center;
+    justify-content: start;
     align-items: center;    
+    margin-left: 2vw;
+    margin-top: 10vh;
 }
 
-.mobile-chart {
-    width: 100vw;
-}
 
-.mobile {
-    flex-direction: column-reverse;
+.button-chart {
+    display: inline-flex;
+    width: 40px;
+    height: 40px;
+    border: 3px solid whitesmoke;
+    border-radius: 1vw;
     align-items: center;
+    justify-content: center;
+    color: whitesmoke;
+    font-size: 20px;
+    margin: 0 20px;
+}
+
+.chart-control {
+    display: inline-flex;
+    justify-content: space-between;
+    width: 58vw;
+    height: fit-content;
+    margin-top: 2vh;
+}
+
+.strings-container {
+    display: flex;
+    flex-direction: column;
+    min-width: 100%;
+    margin-top: 3vh;
+}
+
+.string {
+    margin-top: 1vh;
+    background-color: blue;
+    border-radius: 10px;
+    border: 2px solid whitesmoke;
+    font-size: 1.5em;
+    color: yellow;
+}
+
+@media (max-width: 780px) {
+    .who {
+        width: 100%;
+        height: fit-content;
+        margin-bottom: 10vh;
+    }
+
+    .string {
+        width: 90%;
+    }
+
+    .strings-container {
+        align-items: center;
+        margin-bottom: 100px;
+    }
+
+    body {
+        flex-direction: column-reverse;
+        align-items: center;
+    }
+
+    .chart {
+        width: 100vw;
+        margin-top: 0;
+    }
+
 }
