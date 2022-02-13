@@ -81,7 +81,8 @@ class Chart {
             let offsetX = this.canvas.getBoundingClientRect().left;
             let offsetY = this.canvas.getBoundingClientRect().top;
             if (this.isDragging) {
-                e.preventDefault();
+                if (!this.mobile)
+                    e.preventDefault();
                 e.stopPropagation();
                 let mx=parseInt(e.clientX-offsetX);
                 let my=parseInt(e.clientY-offsetY);
