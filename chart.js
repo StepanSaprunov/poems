@@ -58,8 +58,10 @@ class Chart {
         const mouseDown = (e) => {
             let offsetX = this.canvas.getBoundingClientRect().left;
             let offsetY = this.canvas.getBoundingClientRect().top;
-            e.preventDefault();
-            e.stopPropagation();
+            if (!this.mobile) {
+                e.preventDefault();
+                e.stopPropagation();
+            }
             let mx=parseInt(e.clientX-offsetX);
             let my=parseInt(e.clientY-offsetY);
             if (this.mobile) {
