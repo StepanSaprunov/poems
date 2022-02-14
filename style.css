@@ -96,6 +96,9 @@ label {
 }
 
 @media (max-width: 780px) {
+    * {
+        overflow-x: hidden;
+    }
     .who {
         width: 100%;
         height: fit-content;
